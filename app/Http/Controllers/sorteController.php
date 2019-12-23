@@ -28,6 +28,13 @@ class sorteController extends Controller
     public function create()
     {
         //
+        $data= request()->validate([
+                'date'=>'required'
+            ],[
+                'date.required'=>'required|date_format:Y-m-d'
+            ]);
+
+
         $sorteo_id = $request->sorteo_id;
         $user   =   sorteo::updateOrCreate(['id' => $sorteo_id,
             'name'=>$request['name'],

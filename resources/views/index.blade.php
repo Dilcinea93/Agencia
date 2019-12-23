@@ -39,17 +39,13 @@
 				@for ($i = 0; $i <=9; $i++)
 				<tr>
 				@if($i!=10)
-					@for ($j = 0; $j <=9; $j++)
+					@for($j = 0; $j <=9; $j++)
 					<td>
-						<!-- @ for($k=0;$k<$nums_count;$k++)
-							
-							@ if(($i*10+$j)==$numbers[$k]->number) -->
-							<input type="button" class="btn" name="number" style="color:red;" value="{!! $i*10+$j!!}" disbaled >
-							<!-- @ else
-							<input type="button" class="btn" name="number" value="{!! $i*10+$j!!}" disbaled >
-							@ endif
-						@ endfor -->
-
+						@if($numbers[$j]->id_client!='')
+							<input type="button" class="btn" name="number" style="color:red;" value='{!! $i*10+$j!!}'>
+						@else
+						<input type="button" class="btn" name="number" disbaled value='{!! $i*10+$j!!}'>
+						@endif
 					</td>
 					@endfor
 				@endif

@@ -17,18 +17,21 @@ class loteryController extends Controller
     //
     public function index(){
     	$numbers = numsModel::all();
-	    $ganador='';$cedula='';$nums_count='';
-    	foreach ($numbers as $number ) {
-    		if($number->number=='5'){//igual al numero ganador.. como determinar el numero ganador?
-                $ganador = client::where(['id_client'=>$number->id_client])->first();
-                $ganador=$ganador->name;
-                $cedula=$ganador->cedula;
-	    	} 
+	    // $ganador='';$cedula='';$nums_count='';
+    	// foreach ($numbers as $number ) {
+    	// 	if($number->number=='5'){//igual al numero ganador.. como determinar el numero ganador?
+     //            $ganador = client::where(['id_client'=>$number->id_client])->first();
+     //            $ganador=$ganador->name;
+     //            $cedula=$ganador->cedula;
+	    // 	} 
 
-    	}
-        $nums_count=count($numbers);
+    	// }
+     //    $nums_count=count($numbers);
                 //dd($nums_count);
-        return view('index',compact('ganador','numbers','cedula','nums_count'));
+        // dd($numbers);
+        //dd($numbers[1]->id_client);
+        $ganador='YHAA';
+        return view('index',compact('ganador','numbers'));
     }
     public function solicitar(Request $request){
     	/*Como imprimmir un mensaje de "tu mensaje ha sido enviado, en la vista...?mas bonito que un alert"*/

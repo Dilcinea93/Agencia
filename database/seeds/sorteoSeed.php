@@ -16,8 +16,8 @@ class sorteoSeed extends Seeder
         sorteo::create([
         	'name'=>'cena navideña',
         	'lottery'=>'táchira',
-        	'date'=>'23 diciembre',
-        	'time'=>'1pm',
+        	'date'=>'1-1-1',
+        	'time'=>'1',
         	'award'=>'20 hallacas'
         ]);
     }
