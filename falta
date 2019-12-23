@@ -1,0 +1,31 @@
+
+Como extraer el numero que gano hoy si estoy haciendo scrapping a la pagina? eso para saber si el numero de la tabla numbers en el campo number es igual al numero que salio... entonces el id_client que posee ese numero, es el ganador...
+esa consulta la tengo que hacer en el controlador.. Pero necesito un cronjob
+
+pintar de rojo los numeros seleccionados en el index.
+
+
+hacer parte de autorizar a selecionar los numeros
+seleccionaran los numeros los que tengan cuenta.Yo como administrador tendre en mi cuenta para autorizar a que al jugador tal se le vea tal menu.. Eso es permisos de usuario.
+
+
+
+guardar en las tablas los datos correspondientes, el ultimo id registrado y asi.
+
+
+Sincronizar con loteria del zulia
+
+mensajes para avisar algo
+
+validaciones del lado del cliente VUE.
+
+
+----------------------------------------------------------
+
+Guardar los campos de fecha en campos de fecha y los de hora en campos de hora. DB. Usar datepickers
+
+acomoda form agregar evento con ajax.
+
+Acomoda las relaciones entre el ticket, la venta y el jugador..
+
+acomodar las aserciones en las pruebas.

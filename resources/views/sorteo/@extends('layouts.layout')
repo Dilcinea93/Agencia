@@ -1,0 +1,40 @@
+@extends('layouts.layout')
+@section('title','Crear nuevo evento')
+
+<form action="{{url('solicitar')}}" method="get" role="form" v-show="interested" v-model="interested" >
+<div class="row" id="interested-form">
+	<div class="col-sm-5">
+		
+			<label>
+				Tu nombre
+			</label>
+			<input type="text" name="name" class="form-control">
+
+
+			<label>
+				Tu email
+			</label>
+			<input type="text" name="email" class="form-control">
+
+
+			<label>
+				Tu telefono
+			</label>
+			<input type="text" name="phone" class="form-control">
+
+
+			<label>
+				Quieres dejar algún mensaje?
+			</label>
+			<textarea name="comment"></textarea>
+		
+	</div>
+</div>
+
+<div class="row">
+	
+	<div class="col-sm-3">
+		<button type="submit" class="btn-btn-warning" id="enviarsolicitud" onclick="solicitar()">Enviar</button>
+	</div>
+</div>
+</form>
