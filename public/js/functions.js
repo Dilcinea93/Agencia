@@ -1,14 +1,14 @@
-// var massive = new Vue({
-// 	el: '#contact',
-// 	data: {
-// 		interestedshow: false
-// 	},
-// 	methods: {
-// 		interested: function(){
-//         	this.interestedshow= true;
-// 		}
-// 	}
-// });
+var massive = new Vue({
+	el: '#contact',
+	data: {
+		interestedshow: false
+	},
+	methods: {
+		interested: function(){
+        	this.interestedshow= true;
+		}
+	}
+});
 function selectnumber(val){
 	document.getElementById('selectednumber').value=val;
 }

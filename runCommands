@@ -1,0 +1,5 @@
+To test a fresh application installation, run the commands in order:
+
+0-vendor/bin/phpunit to check everything is ok
+1-php artisan migrate:fresh o php artisan migrate
+2-php artisan db:seed

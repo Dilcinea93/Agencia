@@ -12,7 +12,7 @@
 <p>Te daremos un ticket en formato PDF que sirva de constancia de que jugaste con nosotros!</p>
 		<form method="post" action="{{route('comprar')}}" role="form">
 		{{csrf_field()}}
-		<input type="hidden" name="selectednumber" id="selectednumber">
+		<input type="hidden" name="id_num" id="selectednumber">
 		<table>
 			@for ($i = 0; $i <=9; $i++)
 			<tr>

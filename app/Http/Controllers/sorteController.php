@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Redirect,Response;
 use App\sorteo;
+use App\client;
+use App\numsModel;
+use App\Classes\generarPdf;
 use Illuminate\Http\Request;
 
 class sorteController extends Controller
@@ -16,8 +19,10 @@ class sorteController extends Controller
     public function index()
     {
         //
-        $sorteos = sorteo::orderBy('id','desc')->paginate(8);
-        return view('sorteo.index',compact('sorteos'));
+        
+        return view('sorteo.index', [
+            'sorteos'     => sorteo::all()
+        ]);
     }
 
     /**
@@ -27,23 +32,6 @@ class sorteController extends Controller
      */
     public function create()
     {
-        //
-        $data= request()->validate([
-                'date'=>'required'
-            ],[
-                'date.required'=>'required|date_format:Y-m-d'
-            ]);
-
-
-        $sorteo_id = $request->sorteo_id;
-        $user   =   sorteo::updateOrCreate(['id' => $sorteo_id,
-            'name'=>$request['name'],
-            'lottery'=>$request['lottery'],
-            'date'=>$request['date'],
-            'time'=>$request['time'],
-            'award'=>$request['award']]);
-    
-        return Response::json($sorteo);
     }
 
     /**
@@ -54,7 +42,9 @@ class sorteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sorteo = new sorteo($request->all());
+        $sorteo->save();
+        return redirect('home');
     }
 
     /**
@@ -66,6 +56,7 @@ class sorteController extends Controller
     public function show($id)
     {
         //
+        return view('sorteo.show',compact('id'));
     }
 
     /**
@@ -77,6 +68,7 @@ class sorteController extends Controller
     public function edit($id)
     {
         //
+        return view('sorteo.edit',compact('id'));
     }
 
     /**
@@ -89,6 +81,9 @@ class sorteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $sorteo = sorteo::find($id);
+        $sorteo->update($request->all());
+        return redirect('/events/sorteo/');
     }
 
     /**
@@ -99,9 +94,39 @@ class sorteController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $sorteo = sorteo::where('id',$id)->delete();
-   
-        return Response::json($sorteo);
+        $sorteo = sorteo::find($id)->delete();
+        return redirect('/events/sorteo/');
+    }
+/*******************************************/
+    public function numberForm(){
+        $numbers = numsModel::all(); 
+        return view('numberlist',compact('numbers'));
+    }
+
+    public function comprar(Request $request){
+
+        if(isset($request)){
+        $data= request()->validate([
+            'id_num'=>'required',
+             'cedula'=>'required',
+             'name'=>'required',
+             'email'=>'required',
+             'phone'=>'required',
+        ]);
+        $client = client::create($request->all());
+        $selected= $request['id_num'];
+        $nums= numsModel::find($selected);
+        $nums->id_client=$client->id;
+        $nums->save();
+        $this->imprimir($selected);
+        return redirect(route('home'));
+        }else{
+            echo "Error en los datos";
+            //como mostrar una excepcion
+        }
+    }
+    public function imprimir($selected){
+        $pdf= new generarPDF();
+        $pdf->createPdf($selected);
     }
 }

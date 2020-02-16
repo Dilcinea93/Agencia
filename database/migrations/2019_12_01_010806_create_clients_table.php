@@ -17,12 +17,12 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('cedula');
+            $table->integer('id_num');
             $table->string('email')->nullable();
             $table->integer('phone');
             $table->rememberToken();
             $table->timestamps();
         });
-        
     }
 
     /**

@@ -38,7 +38,7 @@
               @endforeach
            </tbody>
           </table>
-          {{ $sorteos->links() }}
+          
   </div>
   </div>
  <div class="modal fade" id="sorteoModal" aria-hidden="true">

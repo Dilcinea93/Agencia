@@ -19,24 +19,29 @@ Route::post('/solicitar', 'loteryController@solicitar')->name('solicitar')
 /*
 cuando yo lo autorice, entonces el usuario podra ingresar al number-list
 */
-Route::get('/number-list', 'loteryController@numberForm')->name('numberlist');
+Route::get('/number-list', 'sorteController@numberForm')->name('numberlist');
 
 /*Ruta para comprar un numero en especifico*/
-Route::post('/comprar', 'loteryController@comprar')->name('comprar');
 
-Route::get('/reservar', 'loteryController@reservar')->name('reservar');
+//Route::middleware(['authorizationMiddleware',])->group(function () {
+    
+Route::post('/comprar', 'sorteController@comprar')->name('comprar');
+//Route::post('/comprar', 'loteryController@comprar')->name('comprar');
+	Route::get('/reservar', 'loteryController@reservar')->name('reservar');
 
-Route::post('/autorizar', 'loteryController@autorizar')->name('autorizar');
+	//Route::post('/autorizar', 'loteryController@autorizar')->name('autorizar');
+//});
 
 
+Route::name('print')->get('/imprimir', 'sorteController@imprimir');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 /***************************************************/
 
-	/*RUTAS PARA CREAR EVENTO */
+	/*RUTAS PARA EVENTO */
+Route::prefix('events')->group(function () {
 
-
-Route::resource('/sorteo', 'sorteController');
-
-// Route::get('/nuevoevento', 'sorteController@index')->name('nuevoevento');
+	Route::get('index','sorteController@index');
+	Route::resource('/sorteo', 'sorteController');
+});

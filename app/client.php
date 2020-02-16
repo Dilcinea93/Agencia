@@ -15,7 +15,7 @@ class client extends Model
      */
     protected $table = 'client';
 
-   protected $fillable  = ['id_client','cedula','name','email','phone'];
+   protected $fillable  = ['id_client','cedula','name','email','phone','id_num'];
   	
   	// public function venta(){
    //     //dd($this->belongsTo(client::class));

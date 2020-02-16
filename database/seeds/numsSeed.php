@@ -14,7 +14,7 @@ class numsSeed extends Seeder
     {
         //
         
-        for($i=0;$i<99;$i++){
+        for($i=1;$i<100;$i++){
             \DB::table('numsModel')->insert([
                 'number' => $i,
                 'id_client'=> ''

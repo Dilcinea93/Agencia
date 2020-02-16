@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 
 class authorizationMiddleware
 {
@@ -13,10 +14,10 @@ class authorizationMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $status_auth)
     {
-        if ($request->age <= 200) {
-            return redirect('home');
+        if ($status_auth!='autorizado') {
+            return redirect('../index.php')->with('error','You have no permission for this page!');
         }
         return $next($request);
 
