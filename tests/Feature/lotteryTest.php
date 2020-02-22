@@ -20,6 +20,13 @@ class lotteryTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function test_it_loads_the_new_events_page()
+    {
+        $this->withoutExceptionHandling();
+        $response = $this->get('/events');
+
+        $response->assertStatus(200);
+    }
 /**************** TESTING THE EVENTS ***************/
     /**
      * A basic feature test example.
@@ -28,9 +35,9 @@ class lotteryTest extends TestCase
      */
     public function it_register_the_event(){
         $this->withoutExceptionHandling();
-        $this->post('/events/sorteo',['name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('home');
+        $this->post('/events',['name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('home');
 
-        $this->assertDatabaseHas('sorteo',['name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas']);
+        $this->assertDatabaseHas('event',['name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas']);
     }
 
      /**
@@ -40,7 +47,7 @@ class lotteryTest extends TestCase
      */
 public function it_loads_index_page(){
     $this->withoutExceptionHandling();
-    $this->get('events/index')->assertStatus(200);
+    $this->get('events')->assertStatus(200);
 }
     /**
      * A basic feature test example.
@@ -51,7 +58,7 @@ public function it_loads_index_page(){
 
     $this->withoutExceptionHandling();
         $event= factory(sorteo::class)->create();
-        $this->put("/events/sorteo/{$event->id}",['name'=>'celulares','description'=>'Ganarás un celular de última generacion','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('/events/sorteo/');
+        $this->put("/events/{$event->id}",['name'=>'celulares','description'=>'Ganarás un celular de última generacion','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('/events/');
     }
 
     /**
@@ -62,7 +69,7 @@ public function it_loads_index_page(){
     public function it_deletes_the_event(){
         $this->withoutExceptionHandling();
         $event= factory(sorteo::class)->create();
-        $this->delete("/events/sorteo/{$event->id}",['name'=>'celulares','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('/events/sorteo/');
+        $this->delete("/events/{$event->id}",['name'=>'celulares','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect(route('destroy'));
     }
 
     /**
@@ -71,7 +78,7 @@ public function it_loads_index_page(){
      * @test
      */
     public function it_loads_the_edit_page(){
-        $response = $this->get('/events/sorteo/{$event->id}/edit');
+        $response = $this->get('/events/{$event->id}/edit');
         $response->assertStatus(200);
     }
 
@@ -81,7 +88,7 @@ public function it_loads_index_page(){
      * @test
      */
     public function it_loads_the_info_page(){
-        $response = $this->get('/events/sorteo/{$event->id}');
+        $response = $this->get('/events/{$event->id}');
         $response->assertStatus(200);
     }
 /**************** TESTING THE EVENTS ***************/

@@ -1,0 +1,21 @@
+Routes:
+	index: Index
+	request: solicitar
+	numberlist: Listado de numeros. No se puede acceder sin tener autorizacion de parte de un middleware
+	comprar: Funcion para guardar datos del comprador, el numero comprado y registrar la venta con un observer. Regulado por middleware.
+	events/ : resource CRUD. Registrar nuevo evento.
+	events/list: Listado de eventos (Beatsys)
+	
+Controllers:
+	LoteryController: Gestiona Index enviando datos a la vista y gestiona el formulario de solicitud.
+Models: 
+	Lotteries: Usa traits para devolver los valores Enum (no funciona, haz que funcione)
+
+
+
+
+/***************************************************************/
+					PENDIENTES
+/***************************************************************/
+
+Arreglar HTACCESS para eliminar el public/index.php

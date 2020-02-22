@@ -1,31 +1,92 @@
 
-Como extraer el numero que gano hoy si estoy haciendo scrapping a la pagina? eso para saber si el numero de la tabla numbers en el campo number es igual al numero que salio... entonces el id_client que posee ese numero, es el ganador...
-esa consulta la tengo que hacer en el controlador.. Pero necesito un cronjob
-
-
 hacer parte de autorizar a selecionar los numeros
-seleccionaran los numeros los que tengan cuenta.Yo como administrador tendre en mi cuenta para autorizar a que al jugador tal se le vea tal menu.. Eso es permisos de usuario.
+seleccionaran los numeros los que tengan cuenta.Yo como administrador tendre en mi cuenta para autorizar a que al jugador tal se le vea tal menu.. Eso es permisos de usuario.. o un middleware.. ya lo tengo
 
+Arregla registro y login.
 
+mensajes de error.
 
-mensajes para avisar algo
-
-validaciones del lado del cliente VUE.
-
-
-----------------------------------------------------------
+---------S/I----------validaciones del lado del cliente VUE.
 
 Guardar los campos de fecha en campos de fecha y los de hora en campos de hora. DB. Usar datepickers
 
-acomoda form agregar evento con ajax.
+---------S/I----------acomoda form agregar evento con ajax.
 
-Acomoda las relaciones entre el ticket, la venta y el jugador..
+---------S/I----------Acomoda las relaciones entre el ticket, la venta y el jugador.. Integridad referecial
 
-
-JS
-Validaciones de lado del cliente y servidor.
-mensajes de error si no se ecuentra un dato o no se encuentra la pagina.
-campos de fecha, hora, telefono, email
+como hacer que la pagina index se llene con la informacion del evento que creo el usuario?
 
 
+Revisar que pasa con el formato del telefono
 
+Revisa porque no se descarga el PDF
+
+
+Revisa porque el cronjob no se ejecuta en el tiempo que le digo.
+
+
+
+
+/***********************************/
+			TAREA
+/***********************************/
+
+Hacer test para probar el observer sellObserver
+
+Arreglar los nombres de las clases para poder navegar mejor en el proyecto.
+
+
+Consumir API de chance. Como gestiono un juego de lotería de chance por aquí? Aprender como funciona la venta de lotería. 
+
+Trabajar el campo de lotteries en el index.
+<!-- Si la lotería es la rifa, entonces pone la fecha. Si es chance, aparece un input y pregunta la fecha -->
+/***********************************/
+			MODULOS
+/***********************************/
+
+-Compras
+		-funcion de compra
+		-observador para registrar la venta
+		integridad referencial, claves foraneas entre cliente, compra y venta que es la 	tabla transaccional.------------------
+
+-listas
+		Listado de ventas.--------------------
+		Listado de clientes.
+		Lista de ingresos -------
+
+-Eventos
+		Registro de nuevo evento.
+		Programacion del lanzamiento del evento
+		(Parte del registro del evento.)
+
+-Solicitudes
+		Envio de correos electronicos. (Index)
+		Listado de solicitudes
+
+-login
+		Registro de usuario
+		Login al sistema
+-Loterías
+		Seleccion de lotería a jugar
+		Funcion para conectar con agencia de lotería
+
+-Estadísticas
+		No se como hacerlo..
+-Usuarios
+		Permisos de usuario.
+-pagos
+		Formulario para procesar pago
+		Funcion para Procesar pago
+
+
+/*********************************/
+	A TENER EN CUENTA
+/*********************************/
+
+Crea un repositorio GIT y protegelo.
+
+Instala los datepickers. Crea los observadores en el appServiceProvider. Crea los modelos, migraciones y factories, Instala paquetes, crea las pruebas., 
+
+Antes de empezar la aplicacion identifica todos los modulos y las tareas de cada módulo. Ve por orden. Y desarrolla tomando 3 días para cada módulo.
+
+Escribe todita la aplicacion (Desde la Base de datos hasta las vistas) y su documentacion en inglés.

@@ -10,11 +10,13 @@ class CreateNumsTable extends Migration
     {
         Schema::create('numsModel', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_num');
             $table->integer('number');
-            $table->string('id_client');
+            $table->integer('id_client');
             $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

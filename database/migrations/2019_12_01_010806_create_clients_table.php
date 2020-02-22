@@ -14,14 +14,16 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('client', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
             $table->string('name');
             $table->integer('cedula');
             $table->integer('id_num');
+            $table->integer('id_venta');
             $table->string('email')->nullable();
             $table->integer('phone');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Redirect,Response;
-use App\sorteo;
+use App\Event;
+use App\lotteries;
 use App\client;
 use App\numsModel;
+use App\venta;
 use App\Classes\generarPdf;
 use Illuminate\Http\Request;
 
-class sorteController extends Controller
+/**
+    This controller manages the event organization
+*/
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +24,9 @@ class sorteController extends Controller
     public function index()
     {
         //
-        
-        return view('sorteo.index', [
-            'sorteos'     => sorteo::all()
+        return view('event.index', [
+            'events'     => event::all(),
+            'lotteries'=> lotteries::all()
         ]);
     }
 
@@ -42,8 +47,8 @@ class sorteController extends Controller
      */
     public function store(Request $request)
     {
-        $sorteo = new sorteo($request->all());
-        $sorteo->save();
+        $event = new event($request->all());
+        $event->save();
         return redirect('home');
     }
 
@@ -56,7 +61,10 @@ class sorteController extends Controller
     public function show($id)
     {
         //
-        return view('sorteo.show',compact('id'));
+        return view('event.show',[
+            'numbers'     => numbers::all(),
+            'event'=> Event::where('id', $id)->get()
+        ]);
     }
 
     /**
@@ -68,7 +76,7 @@ class sorteController extends Controller
     public function edit($id)
     {
         //
-        return view('sorteo.edit',compact('id'));
+        return view('event.edit',compact('id'));
     }
 
     /**
@@ -81,9 +89,9 @@ class sorteController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $sorteo = sorteo::find($id);
-        $sorteo->update($request->all());
-        return redirect('/events/sorteo/');
+        $event = Event::find($id);
+        $event->update($request->all());
+        return redirect('/events/');
     }
 
     /**
@@ -94,8 +102,9 @@ class sorteController extends Controller
      */
     public function destroy($id)
     {
-        $sorteo = sorteo::find($id)->delete();
-        return redirect('/events/sorteo/');
+
+        $event = Event::find($id)->delete();
+        return redirect('/events');
     }
 /*******************************************/
     public function numberForm(){
@@ -118,12 +127,21 @@ class sorteController extends Controller
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
+
+
+        \App\client::observe(\App\Observers\sellObserver::class);
         $this->imprimir($selected);
-        return redirect(route('home'));
+        // return redirect(route('index'));
+        return Response::json($client);
         }else{
             echo "Error en los datos";
             //como mostrar una excepcion
         }
+    }
+    public function eventList(){
+        return view('event.eventos', [
+            'sorteos'     => Event::all()
+        ]);
     }
     public function imprimir($selected){
         $pdf= new generarPDF();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSorteoTable extends Migration
+class CreateEventTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateSorteoTable extends Migration
      */
     public function up()
     {
-        Schema::create('sorteo', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('event', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->string('lottery');
             $table->string('description');
@@ -32,6 +32,6 @@ class CreateSorteoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorteo');
+        Schema::dropIfExists('event');
     }
 }

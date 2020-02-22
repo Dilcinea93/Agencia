@@ -1,8 +1,8 @@
 @extends('layouts.app')
-<!-- Porque no extiende del layout bien? El JS no me funciona-->
 @section('title','Crear nuevo evento')
 
 @section('content')
+
 <div class="container-fluid">
     <h2 style="margin-top: 12px;" class="alert alert-success">Crear nuevo evento</h2><br>
     <div class="row">
@@ -21,18 +21,18 @@
               </tr>
            </thead>
            <tbody id="sorteo-crud">
-              @foreach($sorteos as $sorteo)
-              <tr id="sorteo_id_{{ $sorteo->id }}">
-                 <td>{{ $sorteo->id  }}</td>
-                 <td>{{ $sorteo->name  }}</td>
-                 <td>{{ $sorteo->lottery }}</td>
-                 <td>{{ $sorteo->date }}</td>
-                 <td>{{ $sorteo->time  }}</td>
-                 <td>{{ $sorteo->award }}</td>
-                 <td><a href="javascript:void(0)" id="edit-event" data-id="{{ $sorteo->id }}" data-name="{{ $sorteo->name }}" data-lottery="{{ $sorteo->lottery }}" data-date="{{ $sorteo->date }}" data-time="{{ $sorteo->time }}" data-award="{{ $sorteo->award }}" class="btn btn-info">Edit</a></td>
+              @foreach($events as $event)
+              <tr id="sorteo_id_{{ $event->id }}">
+                 <td>{{ $event->id  }}</td>
+                 <td>{{ $event->name  }}</td>
+                 <td>{{ $event->lottery }}</td>
+                 <td>{{ $event->date }}</td>
+                 <td>{{ $event->time  }}</td>
+                 <td>{{ $event->award }}</td>
+                 <td><a href="javascript:void(0)" id="edit-event" data-id="{{ $event->id }}" data-name="{{ $event->name }}" data-lottery="{{ $event->lottery }}" data-date="{{ $event->date }}" data-time="{{ $event->time }}" data-award="{{ $event->award }}" class="btn btn-info">Edit</a></td>
                  
                  <td>
-                  <a href="javascript:void(0)" id="delete-event" data-id="{{ $sorteo->id }}" class="btn btn-danger delete-event">Delete</a></td>
+                  <a href="javascript:void(0)" id="delete-event" data-id="{{ $event->id }}" class="btn btn-danger delete-event">Delete</a></td>
                   
               </tr>
               @endforeach
@@ -56,7 +56,11 @@
           <input type="text" class="form-control" name="name" id="name">
 
           <label>Con que lotería vas a jugar?</label>
-          <input type="text" class="form-control" name="lottery" id="lottery">
+          <select name="lottery" id="lottery" required class="form-control">
+              @foreach($lotteries as $lottery)
+                <option value="{{$lottery->id}}">{{$lottery->name}}</option>
+              @endforeach
+            </select>
 
           <label>Fecha del sorteo</label>
           <input type="text" class="form-control" name="date" id="date">
@@ -70,19 +74,19 @@
           <label>Teléfono</label>
           <input type="text" class="form-control" name="phone" id="phone">
 
-          <input type="submit" class="btn   btn-success">
 
           <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary" id="btn-save" value="create">Save changes
+                  <button type="submit" class="btn btn-primary" id="btn-save" value="create">Create Event
                   </button>
-                </div>
+          </div>
         </form>
         </div>
     </div>
   </div>
   </div>
- <!-- Jquery -->
-    <script src="{{asset('js/jquery.min.js')}}"></script> 
-<script src="{{asset('js/functions.js')}}"></script>
 
 @endsection
+
+
+    
+

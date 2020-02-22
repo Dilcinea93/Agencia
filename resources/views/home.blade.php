@@ -15,17 +15,23 @@
         	<h3>Ventas concretadas</h3>
         	<table class="table striped">
         		<tr>
-        			<td>Cliente</td>
+        			<td>Cédula liente</td>
+                    <td>Nombre Cliente</td>
         			<td>Número comprado</td>
         			<td>Sorteo</td>
         			<td>Fecha</td>
         		</tr>
-        		<!-- Consultar a las tres tablas para hacer esta, las relaciones ya estan en los modelos, ve como imprimir la informacion correcta aqui -->
         		@foreach($ventas as $venta)
-	        	<td>{{$venta->fecha}}</td>
                 <td>{{$venta->client->cedula}}</td>
+                <td>{{$venta->client->name}}</td>
+                <td>{{$venta->id_num}}</td>
+                <td>{{$venta->id_sorteo}}</td>
+	        	<td>{{$venta->fecha}}</td>
 	        	@endforeach
         	</table>
+
+            <h2>Faltan por vender {{$faltan}}</h2>
+            <h2>Ingresos totales por ventas: {{$incomings}}</h2>
 	     </div>
     </div>
 </div>

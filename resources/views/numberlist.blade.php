@@ -5,31 +5,22 @@
 
 
 <div id="contact">
-<div class="row">
+	<div class="row">
 		
-	<div class="col-md-6">
-<h3>Elige aquí tu número de la suerte</h3>
-<p>Te daremos un ticket en formato PDF que sirva de constancia de que jugaste con nosotros!</p>
-		<form method="post" action="{{route('comprar')}}" role="form">
-		{{csrf_field()}}
-		<input type="hidden" name="id_num" id="selectednumber">
-		<table>
-			@for ($i = 0; $i <=9; $i++)
-			<tr>
-			@if($i!=10)
-				@for ($j = 0; $j <=9; $j++)
-					<td><input type="button" class="btn" name="number" value="{!! $i*10+$j!!}" onclick="selectnumber(this.value)"></a></td>
-				@endfor
-			@endif
-			</tr>
-			@endfor
-			
-		</table>
-	</div> <!-- col-md-6 -->
+		<div class="col-md-6">
+			<h3>Elige aquí tu número de la suerte</h3>
+			<p>Te daremos un ticket en formato PDF que sirva de constancia de que jugaste con nosotros!</p>
+			<form method="post" action="{{route('comprar')}}" role="form">
+			{{csrf_field()}}
+			<input type="text" name="id_num" id="selectednumber">
+			<small>Arreglar esto para que el numero aparezca con VUE</small>
+			<br>
+			@include('event.bougth');
+		</div> <!-- col-md-6 -->
 
-	<div class="col-sm-5">
-		<h3>Déjanos tus datos para contactarte</h3>
-		<label>
+		<div class="col-sm-5">
+			<h3>Déjanos tus datos para contactarte</h3>
+			<label>
 				Tu cédula
 			</label>
 			<input type="text" name="cedula" class="form-control">
@@ -44,16 +35,12 @@
 				Tu email
 			</label>
 			<input type="text"  id="email" name="email" class="form-control" onblur="valida_mail(this)">
-
-
 			<label>
 				Tu telefono
 			</label>
 			<input type="text" name="phone" class="form-control" maxlength="11">
-
-		
-	</div>
-</div>
+			</div>
+		</div>
 
 		<div class="row">
 			

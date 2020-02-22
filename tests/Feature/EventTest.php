@@ -5,6 +5,9 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use DB;
+use App\client;
+use App\sorteo;
 
 class EventTest extends TestCase
 {
@@ -32,4 +35,10 @@ class EventTest extends TestCase
          $this->assertDatabaseHas('client',['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'342','id_num'=>'4']);
 
     }
+
+    /**
+     * A basic feature test example.
+     *
+     * @test void
+     */
 }

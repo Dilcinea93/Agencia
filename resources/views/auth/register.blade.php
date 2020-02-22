@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 
+@section('title','Registro de usuario')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

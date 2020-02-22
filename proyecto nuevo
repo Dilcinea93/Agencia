@@ -1,0 +1,12 @@
+Proyecto: NKrta-xxi
+
+programa de ejecucion offline que permite la disponibilidad de sitios web sin conexion mediante minería de datos para conocer tus preferencias más comunes y trabajar en segundo plano para descargar páginas relacionadas a tus consultas más frecuentes, almacenandolas en un espacio del disco y permitiendo su posterior consulta atraves de cualquier navegador como si de internet se tratase.
+
+El programa debe hacer uso de internet para sincronizar y descargar nuevos sitios web. para eso debe preguntar cuando se desea sincronizar.
+
+tambien debe ofrecer una ruta a visitar en el navegador para visitar los sitios web que se descarguen.
+
+ 
+-------------------------------------------------
+
+API. Servicio web. Ejecutable en JAVA.

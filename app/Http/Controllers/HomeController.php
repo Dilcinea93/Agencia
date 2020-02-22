@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\sorteo;
+use App\numsModel;
 use App\venta;
 class HomeController extends Controller
 {
@@ -25,24 +26,21 @@ class HomeController extends Controller
     public function index()
     {
         $ventas=venta::all();
-        /*contar cuantas ventas se han hecho*/
-        return view('home',compact('ventas'));
+        $nums= numsModel::all();
+        $faltan='';
+        $incoming= $this->incomings();
+        foreach ($nums as $value) {
+            if($value->id_client==null){
+                $faltan=+1;
+            }
+        }
+        return view('home',compact('ventas','faltan','incoming'));
     }
-    public function nuevo_evento(Request $request){
-        $data= request()->all();
-        sorteo::create([
-            'name'=>$data['name'],
-            'lottery'=>$data['lottery'],
-            'date'=>$data['date'],
-            'time'=>$data['time'],
-            'award'=>$data['award']
-        ]);
-        return redirect()->back();
+    public function incomings(){
+        $ventas= venta::all();
+        foreach($ventas as $venta){
+            $incoming+=$venta->amount;
+        }
+        return $incoming;
     }
-    /*
-        registrar evento nuevo
-        Estadistica. Listado de ventas, cuantos faltan por vender, 
-        
-
-    */
 }
