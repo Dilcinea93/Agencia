@@ -16,16 +16,21 @@ class CreateVentasTable extends Migration
     {
         Schema::create('venta', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_client');
-            $table->integer('id_user');
-            $table->integer('id_num');
-            $table->integer('id_sorteo');
+            $table->unsignedBigInteger('id_client');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_num');
+            $table->unsignedBigInteger('id_event');
             $table->date('fecha');
             $table->integer('amount');
             $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
+
+            $table->foreign('id_client')->references('id')->on('client')->onDelete('cascade');
+            
+            $table->foreign('id_num')->references('id')->on('numsModel')->onDelete('cascade');
+            $table->foreign('id_event')->references('id')->on('event')->onDelete('cascade');
         });
     }
 

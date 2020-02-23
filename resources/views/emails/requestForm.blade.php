@@ -1,4 +1,4 @@
- requests forms -->
+
 <div class="row">
 	<div class="col-md-12">
 		<div id="contact">
@@ -7,8 +7,8 @@
 
 		<input class="btn btn-beat btn-block" id="interested" @click="interested()" value="Estoy interesado en jugar">
 
-
-		<div v-model="interestedshow" v-if="!interestedshow" class="col-md-10">	
+		<div id="contact">
+		<div  v-if="interestedshow" class="col-md-10">	
 			<form action="{{url('solicitar')}}" method="post" role="form" id="interestedform">
 				{{csrf_field()}}
 				@if($errors->any())
@@ -62,9 +62,10 @@
 				</div>
 			</form>
 		</div>
-
+		</div>
 	</div>
 	</div>
 </div>
 
-<!-- ends requests forms
+
+ <script type="text/javascript" src="{{asset('js/functions.js')}}"></script>

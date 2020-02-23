@@ -15,7 +15,7 @@
         	<h3>Ventas concretadas</h3>
         	<table class="table striped">
         		<tr>
-        			<td>Cédula liente</td>
+        			<td>Cédula cliente</td>
                     <td>Nombre Cliente</td>
         			<td>Número comprado</td>
         			<td>Sorteo</td>
@@ -25,12 +25,13 @@
                 <td>{{$venta->client->cedula}}</td>
                 <td>{{$venta->client->name}}</td>
                 <td>{{$venta->id_num}}</td>
-                <td>{{$venta->id_sorteo}}</td>
-	        	<td>{{$venta->fecha}}</td>
+                <td>{{$venta->numeros->id_number}}</td>
+	        	<td>Agrega el nombre del sorteo... Agrega la relacion en el modelo. No lo quise hacer porque no vaya a ser que mas bien la cague, no se si la estoy cagando ya xD</td>
+                <td>{{$venta->fecha}}</td>
 	        	@endforeach
         	</table>
 
-            <h2>Faltan por vender {{$faltan}}</h2>
+            <h2>Faltan por vender: {{$faltan}}</h2>
             <h2>Ingresos totales por ventas: {{$incomings}}</h2>
 	     </div>
     </div>

@@ -1,7 +1,9 @@
+
 var massive = new Vue({
 	el: '#contact',
 	data: {
-		interestedshow: false
+		interestedshow: false,
+		selected: '2'
 	},
 	methods: {
 		interested: function(){
@@ -14,9 +16,6 @@ function selectnumber(val){
 }
 function interested(){
 	document.getElementById('interested-form').style.display="block";
-}
-function solicitar(){
-	alert('Gracias por tu mensaje. En unos minutos nos pondremos en contacto contigo')
 }
 //valida correo
 	function valida_mail(e){

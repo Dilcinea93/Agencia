@@ -47,8 +47,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = new event($request->all());
-        $event->save();
+        $event = Event::create($request->all());
         return redirect('home');
     }
 
@@ -62,7 +61,7 @@ class EventController extends Controller
     {
         //
         return view('event.show',[
-            'numbers'     => numbers::all(),
+            'numbers'     => numsModel::all(),
             'event'=> Event::where('id', $id)->get()
         ]);
     }
@@ -115,27 +114,27 @@ class EventController extends Controller
     public function comprar(Request $request){
 
         if(isset($request)){
-        $data= request()->validate([
-            'id_num'=>'required',
-             'cedula'=>'required',
-             'name'=>'required',
-             'email'=>'required',
-             'phone'=>'required',
-        ]);
+        // $data= request()->validate([
+        //     'id'=>'required',
+        //      'cedula'=>'required',
+        //      'name'=>'required',
+        //      'id_num'=>'required',
+        //      'email'=>'required',
+        //      'phone'=>'required',
+        // ]);
         $client = client::create($request->all());
         $selected= $request['id_num'];
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
 
-
+/*Hacer funcionar el observador*/
         \App\client::observe(\App\Observers\sellObserver::class);
         $this->imprimir($selected);
-        // return redirect(route('index'));
-        return Response::json($client);
+        return redirect(route('index'));
         }else{
             echo "Error en los datos";
-            //como mostrar una excepcion
+//como mostrar una excepcion
         }
     }
     public function eventList(){
@@ -146,5 +145,34 @@ class EventController extends Controller
     public function imprimir($selected){
         $pdf= new generarPDF();
         $pdf->createPdf($selected);
+    }
+
+
+    /**********************************/
+
+    // Estoy probando esto desde aqui porque no puedo ingresar al sistema... esto es de HomeController [22/02/2020]
+    /**********************************/
+
+
+    public function indexHome()
+    {
+        $ventas=venta::all();
+        $nums= numsModel::all();
+        $faltan=0;
+        $incomings= $this->incomings();
+        foreach ($nums as $value) {
+            if($value->id_client==null){
+                $faltan=+1;
+            }
+        }
+        return view('home',compact('ventas','faltan','incomings'));
+    }
+    public function incomings(){
+        $ventas= venta::all();
+        $incoming=0;
+        foreach($ventas as $venta){
+            $incoming+=$venta->amount;
+        }
+        return $incoming;
     }
 }

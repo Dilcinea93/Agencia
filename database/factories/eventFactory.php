@@ -2,12 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\sorteo;
+use App\Event;
 use Faker\Generator as Faker;
 
-$factory->define(sorteo::class, function (Faker $faker) {
+$factory->define(Event::class, function (Faker $faker) {
     return [
         //
+
+        'id_user'=> 1,
         'name'=> $faker->name,
         'lottery'=> $faker->sentence,
         'description'=> $faker->sentence,

@@ -13,7 +13,7 @@
 			<form method="post" action="{{route('comprar')}}" role="form">
 			{{csrf_field()}}
 			<input type="text" name="id_num" id="selectednumber">
-			<small>Arreglar esto para que el numero aparezca con VUE</small>
+
 			<br>
 			@include('event.bougth');
 		</div> <!-- col-md-6 -->
@@ -50,5 +50,7 @@
 		</div>
 	</form> 
 @endsection
+<script type="text/javascript" src="{{asset('vue/vue.js')}}"></script> 
+<script type="text/javascript" src="{{asset('vue/vue-resource.js')}}"></script>
  <script src="{{asset('js/functions.js')}}"></script>
  

@@ -9,10 +9,9 @@ class CreateNumsTable extends Migration
      public function up()
     {
         Schema::create('numsModel', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_num');
+            $table->BigIncrements('id');
             $table->integer('number');
-            $table->integer('id_client');
+            $table->integer('id_client')->nullable();
             $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();

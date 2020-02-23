@@ -14,7 +14,8 @@ class CreateEventTable extends Migration
     public function up()
     {
         Schema::create('event', function (Blueprint $table) {
-            $table->increments('id');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('id_user');
             $table->string('name');
             $table->string('lottery');
             $table->string('description');
@@ -22,7 +23,12 @@ class CreateEventTable extends Migration
             $table->string('time');
             $table->string('award');
             $table->timestamps();
+
+            // Como hacer que en el campo id_user se inserte el ID del usuario Administrador?
+            //$table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
+
+        
     }
 
     /**

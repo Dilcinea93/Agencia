@@ -23,11 +23,12 @@ Route::get('/numberlist', 'EventController@numberForm')->name('numberlist');
 Route::post('/comprar', 'EventController@comprar')->name('comprar');
 //});
 
-
+Route::get('home','HomeController@index');
+Route::get('home2','EventController@indexHome');
 /***************************************************/
 
 	/*RUTAS PARA EVENTO */
 Route::prefix('events')->group(function () {
-	Route::resource('/', 'EventController');
+	Route::resource('/event', 'EventController');
 	Route::get('/list', 'EventController@eventList');
 });

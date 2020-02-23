@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\client;
+use App\user;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,12 +13,9 @@ class Event extends Model
      *
      * @return void
      */
-	public function __construct(){
-
-	}
     protected $table = 'event';
 	public $winner='';
-   protected $fillable  = ['id','name','lottery','date','time','description','award'];
+   public $fillable  = ['id','id_user','name','lottery','date','time','description','award'];
 
 
 	public function winner($number){
@@ -36,4 +33,8 @@ class Event extends Model
 	public function getwinner(){
 		return $this->winner;
 	}
+	public function responsible(){
+  		 //dd($this->belongsTo(client::class));
+  		return $this->belongsTo(user::class,'id');
+      }
 }

@@ -38,8 +38,6 @@ Arreglar los nombres de las clases para poder navegar mejor en el proyecto.
 
 Consumir API de chance. Como gestiono un juego de lotería de chance por aquí? Aprender como funciona la venta de lotería. 
 
-Trabajar el campo de lotteries en el index.
-<!-- Si la lotería es la rifa, entonces pone la fecha. Si es chance, aparece un input y pregunta la fecha -->
 /***********************************/
 			MODULOS
 /***********************************/

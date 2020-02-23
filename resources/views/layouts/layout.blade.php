@@ -17,7 +17,7 @@
 <script type="text/javascript" src="{{asset('vue/vue.js')}}"></script> 
 <script type="text/javascript" src="{{asset('vue/vue-resource.js')}}"></script> 
 <script src="{{asset('bootstrap4.1-dist/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/ajaxCrud.js')}}"></script> 
+<!-- <script type="text/javascript" src="{{asset('js/ajaxCrud.js')}}"></script>  -->
     <!-- Frames JS -->
 <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script> -->
 <!--      <script src="{{asset('bootstrap4.1-dist/js/bootstrap.min.js')}}"></script> -->

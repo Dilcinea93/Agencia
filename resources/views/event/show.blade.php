@@ -5,7 +5,7 @@
 
   
 @section('content')
-@foreach($sorteo as $info)
+@foreach($event as $info)
 
 Título del sorteo: {{$info->name}}
 
@@ -49,7 +49,6 @@ Título del sorteo: {{$info->name}}
 						@endif
 					@else
 					<br>
-					<!-- Numeros 10, 20, 30..... -->
 						@if($number->id_client!='')
 							<input type="button" class="btn" name="number" value="{{$number->number}}" style="color:red;">
 						@else

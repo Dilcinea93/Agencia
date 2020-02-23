@@ -1,8 +1,8 @@
 <?php
 
 namespace App;
-
-use App\client;
+use App\venta;
+use App\lotteries;
 use Illuminate\Database\Eloquent\Model;
 
 class numsModel extends Model
@@ -15,9 +15,15 @@ class numsModel extends Model
      */
    protected $table = 'numsModel';
 
-   protected $fillable  = ['id_num','number','id_client','status'];
-  	public function client(){
-  		 //dd($this->belongsTo(client::class));
-  		return $this->belongsTo(client::class,'id_client');
+   protected $fillable  = ['id','number','id_client','status'];
+  	
+
+      public function venta(){
+       //dd($this->belongsTo(client::class));
+      return $this->belongsTo(venta::class,'id');
+      }
+      public function lottery(){
+       //dd($this->belongsTo(client::class));
+      return $this->belongsTo(lotteries::class,'id');
       }
 }
