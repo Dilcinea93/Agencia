@@ -34,8 +34,8 @@
       <div class="col-md-6 offset-6">
           <a class=" btn links text-black"  href="{{route('numberlist')}}" >Listado de numeros </a>
 
-            <a class=" btn links text-black"  href="{{url('events/sorteo')}}" > <span class="glyphicon glyphicon-user"></span>Crear nuevo evento </a>
-            <a class=" btn links text-black"  href="{{url('events/sorteo')}}" > <span class="glyphicon glyphicon-user"></span>Loterías </a>
+            <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Crear nuevo evento </a>
+            <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Loterías </a>
             <a class=" btn links text-black"  href="{{url('events/list')}}" > <span class="glyphicon glyphicon-user"></span>Eventos </a>
            @if (Route::has('login'))
                     @auth

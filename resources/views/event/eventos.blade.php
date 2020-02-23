@@ -11,7 +11,7 @@
 
 		(Paginar ests resultados)
 	</h5>
-	@foreach($sorteos as $sorteo)
+	@foreach($events as $sorteo)
 	<div class="row">
 		<div class="col-sm-7 ">
 			
@@ -25,7 +25,7 @@
 					{{$sorteo->time}}. El premio será 
 					{{$sorteo->award}}
 					<br>
-					<button class="btn btn-beat"><a href="{{route('sorteo.show',['id'=>$sorteo->id])}}"> Quiero participar</a></button>
+					<button class="btn btn-beat"><a href="{{route('event.show',['id'=>$sorteo->id])}}"> Quiero participar</a></button>
 				</div>
 			</div>
 		</div>

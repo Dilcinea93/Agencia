@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Redirect,Response;
 use App\Event;
+use App\Events\OrderShipped;
 use App\lotteries;
 use App\client;
 use App\numsModel;
@@ -129,7 +130,8 @@ class EventController extends Controller
         $nums->save();
 
 /*Hacer funcionar el observador*/
-        \App\client::observe(\App\Observers\sellObserver::class);
+        // \App\client::observe(\App\Observers\sellObserver::class);
+        event(new OrderShipped($client,$nums));
         $this->imprimir($selected);
         return redirect(route('index'));
         }else{
@@ -139,7 +141,7 @@ class EventController extends Controller
     }
     public function eventList(){
         return view('event.eventos', [
-            'sorteos'     => Event::all()
+            'events'     => Event::all()
         ]);
     }
     public function imprimir($selected){

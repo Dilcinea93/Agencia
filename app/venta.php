@@ -10,7 +10,7 @@ class venta extends Model
 {
     protected $table = 'venta';
 
-   protected $fillable  = ['id','id_client','id_user','id_num','fecha','amount','status'];
+   protected $fillable  = ['id','id_client','id_user','id_num','id_event','fecha','amount','status'];
   	public function client(){
   		 //dd($this->belongsTo(client::class));
   		return $this->belongsTo(client::class,'id');

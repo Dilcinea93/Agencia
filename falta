@@ -12,7 +12,6 @@ Guardar los campos de fecha en campos de fecha y los de hora en campos de hora. 
 
 ---------S/I----------acomoda form agregar evento con ajax.
 
----------S/I----------Acomoda las relaciones entre el ticket, la venta y el jugador.. Integridad referecial
 
 como hacer que la pagina index se llene con la informacion del evento que creo el usuario?
 
@@ -88,3 +87,17 @@ Instala los datepickers. Crea los observadores en el appServiceProvider. Crea lo
 Antes de empezar la aplicacion identifica todos los modulos y las tareas de cada módulo. Ve por orden. Y desarrolla tomando 3 días para cada módulo.
 
 Escribe todita la aplicacion (Desde la Base de datos hasta las vistas) y su documentacion en inglés.
+
+
+/*************************************************/
+			MAÑANA 24 DE FEBRERO
+/*************************************************/
+
+Arreglar el monto de la venta al momento de guardar la venta.
+
+Arreglar el ID del evento en la clase SendShipmentNotification y en la migracion de ventas.
+
+Probar el evento que hice 
+
+Lo que esta en el escritorio.
+
