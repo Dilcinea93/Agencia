@@ -1,4 +1,4 @@
-
+BACK
 hacer parte de autorizar a selecionar los numeros
 seleccionaran los numeros los que tengan cuenta.Yo como administrador tendre en mi cuenta para autorizar a que al jugador tal se le vea tal menu.. Eso es permisos de usuario.. o un middleware.. ya lo tengo
 
@@ -6,22 +6,30 @@ Arregla registro y login.
 
 mensajes de error.
 
----------S/I----------validaciones del lado del cliente VUE.
-
-Guardar los campos de fecha en campos de fecha y los de hora en campos de hora. DB. Usar datepickers
-
----------S/I----------acomoda form agregar evento con ajax.
-
-
 como hacer que la pagina index se llene con la informacion del evento que creo el usuario?
 
-
-Revisar que pasa con el formato del telefono
+Guardar los campos de fecha en campos de fecha y los de hora en campos de hora. DB. Usar datepickers
 
 Revisa porque no se descarga el PDF
 
 
 Revisa porque el cronjob no se ejecuta en el tiempo que le digo.
+
+
+Revisar que pasa con el formato del telefono. Sera el tipo de datos en la migracion? se me apago el telefono.
+
+JS
+
+---------S/I----------acomoda form agregar evento con ajax.
+
+---------S/I----------validaciones del lado del cliente VUE.
+FRONT
+
+
+
+
+
+
 
 
 

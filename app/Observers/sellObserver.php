@@ -2,21 +2,14 @@
 
 namespace App\Observers;
 
-use App\venta;
+use App\client;
 use Illuminate\Support\Facades\Log;
 
 class sellObserver
 {
     //
-    public function created(venta $venta)
+    public function created(client $client)
     {
-        /*quiero guardar en la tabla venta cuando se guarde un registro en la tabla client.
-        Como traigo los datos que se estan guardando en la tabla del modelo observado?*/
-        $venta->id_client='1';
-        $venta->id_user='1';
-        $venta->id_user='24';
-        $venta->save();
-        log::info($venta);
     }
 
     /**
@@ -25,7 +18,7 @@ class sellObserver
      * @param  \App\Models\LivingPlace  $livingPlace
      * @return void
      */
-    public function updated(venta $venta)
+    public function updated(client $client)
     {
     }
 
@@ -35,7 +28,7 @@ class sellObserver
      * @param  \App\Models\LivingPlace  $livingPlace
      * @return void
      */
-    public function deleted(venta $venta)
+    public function deleted(client $client)
     {
         //
     }
@@ -46,7 +39,7 @@ class sellObserver
      * @param  \App\Models\LivingPlace  $livingPlace
      * @return void
      */
-    public function restored(venta $venta)
+    public function restored(client $client)
     {
         //
     }
@@ -57,7 +50,7 @@ class sellObserver
      * @param  \App\Models\LivingPlace  $livingPlace
      * @return void
      */
-    public function forceDeleted(venta $venta)
+    public function forceDeleted(client $client)
     {
         //
     }

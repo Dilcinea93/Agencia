@@ -5,7 +5,7 @@
 
 <!-- START NEWS -->
 <div class="row">
-	<div class="col-md-5">
+	<div class="col-md-5 ">
 		<p>
 			This is a SORTEOS y JUEGOS DE AZAR system.BeatSys makes easier and ..EFICAZ... the RIFAS and SORTEOS management for the most populars lotteries. You can create your own events registering the event information and setting ... SU LANZAMIENTO... on a specific date. Also you can get your favorite lottery billet. We are a laborious team working on management directly with lotteries centers, so the queue at lotteries centers are past!
 		</p>

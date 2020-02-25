@@ -115,24 +115,20 @@ class EventController extends Controller
     }
 
     public function comprar(FormRequestV $request){
-
+        $generarPdf= new generarPdf();
+        
         $client = client::create($request->all());
         $selected= $request['id_num'];
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
-
-        /*Hacer funcionar el observador*/
-        // \App\client::observe(\App\Observers\sellObserver::class);
         event(new OrderShipped($client,$nums,$request['id_event']));
-        $generarPdf= new generarPdf();
+        
         $generarPdf->imprimir($selected);
         return redirect(route('index'));
     }
     
     
-
-
     /**********************************/
 
     // Estoy probando esto desde aqui porque no puedo ingresar al sistema... esto es de HomeController [22/02/2020]

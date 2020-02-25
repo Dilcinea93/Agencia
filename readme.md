@@ -50,8 +50,37 @@ el envio de correos requiere que haya un correo al cual enviar el mensaje.
 
 Para este proyecto se incluyen:
 1 Evento del modelo. (evento y listener)
+Se crea desde el EventServiceProvider, en el array 
+protected $listen = [
+        Registered::class => [
+            SendEmailVerificationNotification::class,
+        OrderShipped::class=>
+        SendShipmentNotification::class
+        ],
+    ];
+
+Donde el primer parametro (OrderShipped::class por ejemplo), corresponde al evento que quieres crear, y el segundo corresponde al listener.
+
+coloca estos imports en el eventServiceProvider
+
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Events\OrderShipped;
+
+y ejecuta php artisan event:generate, para generar tanto el evento como el listener en la carpeta app/events y app/listeners respectivamente.
+
+En el evento importa los modelos.
+asigna variables del constructor a variables de instancia, que seran enviadas automaticaamente al listener asociado. En este caso SendShipmentNotification. En el metodo handle, la variable Event contiene todo lo que se define en el constructor del evento. Obviamente su argumento debe ser del tipo de dato de la clase del evento... en este caso OrderShipped. Entonces defines ahi la funcionalidad que quieres que haga, y ya.
+
+Preferí usar el evento del modelo y no el observador ya que el observador actua sobre el mismo modelo, y con el evento pude guardar datos en otro modelo, que es lo que necesitaba.
 
 1 Observador.
+
+con php artisan make:observer nombreObserver, creas un nuevo archivo observador...
+            Para que funcione el observador, debes poner esto en el AppServiceProvider@boot() 
+
+            \App\client::observe(\App\Observers\sellObserver::class);
+
+obviamente importar los modelos en el archivo del observador
 
 2 Clases.
 

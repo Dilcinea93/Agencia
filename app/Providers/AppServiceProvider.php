@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(200);
-        \App\client::observe(\App\Observers\sellObserver::class);
+        
     }
 
     /**
@@ -27,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        \App\client::observe(\App\Observers\sellObserver::class);
     }
 }

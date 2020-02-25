@@ -18,9 +18,8 @@ class CreateClientsTable extends Migration
             $table->string('name')->required();
             $table->integer('cedula')->required();
             $table->integer('id_num')->required();
-            //$table->integer('id_venta');
             $table->string('email')->nullable();
-            $table->integer('phone')->required;
+            $table->integer('phone')->required();
             $table->rememberToken();
             $table->timestamps();
 

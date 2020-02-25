@@ -59,7 +59,7 @@
 			<label>
 				Tu telefono
 			</label>
-			<input type="text" name="phone" class="form-control" maxlength="11" value="{{old('phone')}}">
+			<input type="text" name="phone" class="form-control" maxlength="12" value="{{old('phone')}}">
 			@if($errors->has('phone'))
 				<small class="form-text text-danger">
 					{{$errors->first('phone')}}

@@ -21,7 +21,6 @@ class CreateVentasTable extends Migration
             $table->unsignedBigInteger('id_num');
             $table->unsignedBigInteger('id_event');
             $table->date('fecha');
-            $table->integer('amount');
             $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use App\Events\OrderShipped;
+use App\venta;
+use App\Providers\sellObserver;
 use App\Listeners\SendShipmentNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -37,8 +39,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        //
     }
 
 /*This function enables the automatic event discovery . So laravel find and register the events and listeners by scanning my application listeners directory. o.O

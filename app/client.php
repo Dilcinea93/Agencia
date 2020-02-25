@@ -17,16 +17,10 @@ class client extends Model
 
    protected $fillable  = ['id_client','cedula','name','email','phone','id_num'];
   	
-  	// public function venta(){
-   //     //dd($this->belongsTo(client::class));
-   //    dd($this->hasMany(client::class,'id_venta')->toSql());
-   //    }
-   //    // esta es la consulta que devuelve lo de arriba:   "select * from `client` where `client`.`id` is null"..... Porque??
 
    public function ventas(){
-       //dd($this->belongsTo(client::class));
       return $this->hasMany(venta::class,'id_client');
       }
 }
-// client::where('id_client',$venta->id_client)->first(); retorna  el cliente al que le pertenece la prumera venta
+
 
