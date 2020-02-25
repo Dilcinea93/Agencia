@@ -19,7 +19,7 @@ Título del sorteo: {{$info->name}}
 					{{$info->award}}
 					<br>
 
-					<b>	Responsable: ACOMODAR ESTO</b>
+					<b>	Responsable:{{$info->responsible->name}}</b>
 				</div>
 			</div>
 

@@ -4,30 +4,18 @@
 @section('content')
 
 <!-- START NEWS -->
+
 <div class="row">
-	<div class="col-md-5 ">
+	@foreach($texts as $text)
+	<div class="col-md-5 p-3">
 		<p>
-			This is a SORTEOS y JUEGOS DE AZAR system.BeatSys makes easier and ..EFICAZ... the RIFAS and SORTEOS management for the most populars lotteries. You can create your own events registering the event information and setting ... SU LANZAMIENTO... on a specific date. Also you can get your favorite lottery billet. We are a laborious team working on management directly with lotteries centers, so the queue at lotteries centers are past!
+			{{$text}}
 		</p>
 	</div>
-	<div class="col-md-5">
-		<img src="" title="CHANCE">
-	</div>
+	@endforeach
 </div>
 
-<div class="row">
-	<div class="col-md-5">
-		<img src="" title="ANIMALITOS">
-	</div>
-	<div class="col-md-5">
-	<p>
-		beatSys cuenta con un sistema de procesamiento de pagos para facilitar a tus compradores la tarea de cancelar el monto asignado por ticket, y además facilitarte a tí el acceso a los ingresos recolectados con tus eventos una vez llegada la fecha tanto si decides programar un evento o gestionar la venta de tickets de loterías desde la comodidad de tu casa.
 
-		Si quieres ser parte de nuestra comunidad y gestionar tus propias rifas u obtener ingresos extra bajo esta modalidad, regístrate en nuestro sistema!
-		
-	</p>
-	</div>
-</div>
 <!-- END NEWS -->
 <hr>
 @include('emails.requestform')
@@ -43,5 +31,4 @@
 	</div>
 </div>
 <!-- Ends newletter -->
-
 @endsection

@@ -8,18 +8,21 @@
 	<div class="row">
 		
 		<div class="col-md-6">
-			<h3>Elige aquí tu número de la suerte</h3>
+			<h3>Elige aquí tu número de la suerte para el sorteo {{$nombre_evento}}</h3>
 			<p>Te daremos un ticket en formato PDF que sirva de constancia de que jugaste con nosotros!</p>
+
 			<form method="post" action="{{route('comprar')}}" role="form">
 			{{csrf_field()}}
-			<input type="text" name="id_num" id="selectednumber">
+
+			<div class="alert alert-info">
+			<h3>Has seleccionado el número</h3>
+			<input type="text" name="id_num" id="selectednumber" class="inputH">
+			</div>
 			@if($errors->has('id_num'))
 				<small class="form-text text-danger">
 					{{$errors->first('id_num')}}
 				</small>
 			@endif
-
-			<input type="text" name="id_event" id="id_event" value="{{$id}}">
 			
 			<br>
 			@include('event.bougth');

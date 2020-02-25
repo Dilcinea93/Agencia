@@ -35,12 +35,11 @@ class Event extends Model
 		return $this->winner;
 	}
 	public function responsible(){
-  		 //dd($this->belongsTo(client::class));
-  		return $this->belongsTo(user::class,'id');
+  		 
+  		return $this->belongsTo(user::class,'id_user');
       }
 
     public function venta(){
-       //dd($this->belongsTo(client::class));
       return $this->belongsToMany(venta::class,'id');
     }
 }

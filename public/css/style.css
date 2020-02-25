@@ -21,6 +21,9 @@ a:hover{
 .links:hover{
 	border-color:orange;
 }
+.inputH{
+	border:1px solid transparent;
+}
 .red{
 	color:red;
 }

@@ -9,7 +9,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>@yield('title')</title>
+    <title>@yield('title') - Beatsys</title>
     <!-- Icons-->  
     <!-- Jquery -->
 <script src="{{asset('js/jquery.min.js')}}"></script> 
