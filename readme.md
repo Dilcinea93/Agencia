@@ -82,9 +82,11 @@ con php artisan make:observer nombreObserver, creas un nuevo archivo observador.
 
 obviamente importar los modelos en el archivo del observador
 
+1 Mailable.
+
 2 Clases.
 
-1 interfaz
+1 interfaz. But i don't know where to use it
 
 1 Request para las validaciones de la seccion de compra.
 (comando php artisan make:Request FormRequest)

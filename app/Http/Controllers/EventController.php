@@ -116,14 +116,12 @@ class EventController extends Controller
 
     public function comprar(FormRequestV $request){
         $generarPdf= new generarPdf();
-        
         $client = client::create($request->all());
         $selected= $request['id_num'];
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
         event(new OrderShipped($client,$nums,$request['id_event']));
-        
         $generarPdf->imprimir($selected);
         return redirect(route('index'));
     }

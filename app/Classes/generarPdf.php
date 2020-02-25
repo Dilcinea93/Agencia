@@ -14,10 +14,7 @@ class generarPDF {
 		$pdf = PDF::loadView('ticket', compact('numero'));
     return $pdf->download('ticket.pdf');
 	}
-	public function write(){
-		//$this->createPDF();
-		return true;
-	}
+	
 	public function imprimir($selected){
         $pdf= new generarPDF();
         $pdf->createPdf($selected);

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Classes\Email;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -37,7 +38,6 @@ class contactMail extends Mailable
      */
     public function build()
     {
-
         return $this->view('email')->subject('Nueva solicitud de ticket');
     }
 }
