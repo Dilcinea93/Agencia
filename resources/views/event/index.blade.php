@@ -55,12 +55,8 @@
                <label>Nombre del evento</label>
           <input type="text" class="form-control" name="name" id="name">
 
-          <label>Con que lotería vas a jugar?</label>
-          <select name="lottery" id="lottery" required class="form-control">
-              @foreach($lotteries as $lottery)
-                <option value="{{$lottery->id}}">{{$lottery->name}}</option>
-              @endforeach
-            </select>
+          <label>Monto por ticket</label>
+          <input type="text" name="amount" class="form-control" id="amount">
 
           <label>Fecha del sorteo</label>
           <input type="text" class="form-control" name="date" id="date">

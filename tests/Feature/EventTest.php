@@ -27,6 +27,18 @@ class EventTest extends TestCase
     /**
      * A basic feature test example.
      *
+     * @test void
+     */
+    public function it_loads_the_numberlist_section()
+    {$this->withoutExceptionHandling();
+        $response = $this->get('numberlist/1');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
      * @test
      */
      public function test_it_loads_the_new_events_page()
@@ -44,9 +56,9 @@ class EventTest extends TestCase
      */
     public function it_register_the_event(){
         $this->withoutExceptionHandling();
-        $this->post('events/event',['id_user'=>1,'name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('home');
+        $this->post('events/event',['id_user'=>1,'name'=>'celulares','amount'=>5000,'description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('home');
 
-        $this->assertDatabaseHas('event',['id_user'=>1,'name'=>'celulares','description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas']);
+        $this->assertDatabaseHas('event',['id_user'=>1,'name'=>'celulares','amount'=>5000,'description'=>'Ganarás un celular de última generación','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas']);
     }
 
 
@@ -59,7 +71,7 @@ class EventTest extends TestCase
 
     $this->withoutExceptionHandling();
         $event= factory(Event::class)->create();
-        $this->put("/events/event/{$event->id}",['id_user'=>1,'name'=>'celulares','description'=>'Ganarás un celular de última generacion','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('/events/');
+        $this->put("/events/event/{$event->id}",['id_user'=>1,'name'=>'celulares','amount'=>5000,'description'=>'Ganarás un celular de última generacion','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect('/events/');
     }
 
     /**
@@ -70,7 +82,7 @@ class EventTest extends TestCase
     public function it_deletes_the_event(){
         $this->withoutExceptionHandling();
         $event= factory(event::class)->create();
-        $this->delete("/events/event/{$event->id}",['name'=>'celulares','lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect(url('events'));
+        $this->delete("/events/event/{$event->id}",['name'=>'celulares','amount'=>5000,'lottery'=>'zulia','date'=>'2006-05-14','time'=>'4pm','award'=>'galletas'])->assertRedirect(url('events'));
     }
 
     /**
@@ -107,7 +119,7 @@ class EventTest extends TestCase
 
 
          $this->post('/comprar',
-            ['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'342','id_num'=>'4']);
+            ['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'342','id_num'=>'4','id_event'=>1]);
          $this->assertDatabaseHas('client',['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'342','id_num'=>'4']);
 
     }

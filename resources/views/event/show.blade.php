@@ -60,7 +60,6 @@ Título del sorteo: {{$info->name}}
 				</table>
 			</div>
 	</div>
-	@endforeach
 
 
 
@@ -111,10 +110,16 @@ Título del sorteo: {{$info->name}}
 				</div>
 			</form>
 		</div>
-
+<br>
+		<div class="row"> Una vez aprobada la solicitud, Accede &nbsp;&nbsp; 
+			<button class="btn btn-info"><a href="{{url('numberlist',['id'=>$info->id])}}"> Aquí </a></button>  &nbsp;&nbsp;al listado de números
+		</div>
 	</div>
 	</div>
 </div>
+
+
+	@endforeach
 
 <!-- ends requests forms-->
 @endsection

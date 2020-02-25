@@ -30,7 +30,7 @@ class CreateVentasTable extends Migration
             $table->foreign('id_client')->references('id')->on('client')->onDelete('cascade');
             
             $table->foreign('id_num')->references('id')->on('numsModel')->onDelete('cascade');
-            // $ table->foreign('id_event')->references('id')->on('event')->onDelete('cascade');
+            $table->foreign('id_event')->references('id')->on('event')->onDelete('cascade');
         });
     }
 

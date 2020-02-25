@@ -107,9 +107,17 @@ class EventController extends Controller
         return redirect('/events');
     }
 /*******************************************/
-    public function numberForm(){
+
+
+    /**
+     * Remove the specified resource from storage.
+     * 
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function numberForm($id){
         $numbers = numsModel::all(); 
-        return view('numberlist',compact('numbers'));
+        return view('numberlist',compact('numbers','id'));
     }
 
     public function comprar(Request $request){
@@ -131,7 +139,7 @@ class EventController extends Controller
 
 /*Hacer funcionar el observador*/
         // \App\client::observe(\App\Observers\sellObserver::class);
-        event(new OrderShipped($client,$nums));
+        event(new OrderShipped($client,$nums,$request['id_event']));
         $this->imprimir($selected);
         return redirect(route('index'));
         }else{

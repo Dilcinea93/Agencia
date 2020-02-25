@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\venta;
 use App\user;
 use DB;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ class Event extends Model
      */
     protected $table = 'event';
 	public $winner='';
-   public $fillable  = ['id','id_user','name','lottery','date','time','description','award'];
+   public $fillable  = ['id','id_user','name','lottery','amount','date','time','description','award'];
 
 
 	public function winner($number){
@@ -37,4 +38,9 @@ class Event extends Model
   		 //dd($this->belongsTo(client::class));
   		return $this->belongsTo(user::class,'id');
       }
+
+    public function venta(){
+       //dd($this->belongsTo(client::class));
+      return $this->belongsToMany(venta::class,'id');
+    }
 }

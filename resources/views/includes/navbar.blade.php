@@ -32,7 +32,7 @@
     
     <div class="col-md-12 options-list">
       <div class="col-md-6 offset-6">
-          <a class=" btn links text-black"  href="{{route('numberlist')}}" >Listado de numeros </a>
+          
 
             <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Crear nuevo evento </a>
             <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Loterías </a>

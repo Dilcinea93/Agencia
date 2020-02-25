@@ -14,6 +14,7 @@
 			{{csrf_field()}}
 			<input type="text" name="id_num" id="selectednumber">
 
+			<input type="text" name="id_event" id="id_event" value="{{$id}}">
 			<br>
 			@include('event.bougth');
 		</div> <!-- col-md-6 -->

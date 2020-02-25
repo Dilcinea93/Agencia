@@ -36,7 +36,7 @@ class SendShipmentNotification
                 'id_client'=>$event->client->id,
                 'id_user'=>1,
                 'id_num'=>$event->client->id_num,
-                'id_event'=>$event->client->id,
+                'id_event'=>$event->id_evento,
                 'amount'=>5000,
                 'fecha'=>'2006-02-15',
                 'status'=>1

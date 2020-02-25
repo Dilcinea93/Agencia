@@ -12,6 +12,7 @@ $factory->define(Event::class, function (Faker $faker) {
         'id_user'=> 1,
         'name'=> $faker->name,
         'lottery'=> $faker->sentence,
+        'amount'=> 5000,
         'description'=> $faker->sentence,
         'date'=> $faker->date,
         'time'=> $faker->time,

@@ -19,6 +19,7 @@ class CreateEventTable extends Migration
             $table->string('name');
             $table->string('lottery');
             $table->string('description');
+            $table->integer('amount');
             $table->date('date');
             $table->string('time');
             $table->string('award');

@@ -15,6 +15,8 @@ class HomeTest extends TestCase
      */
     public function testHome()
     {
+        
+    $this->withoutExceptionHandling();
         $response = $this->get('home2');
 
         $response->assertStatus(200);

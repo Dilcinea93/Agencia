@@ -19,16 +19,18 @@ class OrderShipped
 
 public $client;
 public $nums;
+public $id_evento;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Client $client,NumsModel $nums)
+    public function __construct(Client $client,NumsModel $nums,$id_evento)
     {
         //
         $this->client= $client;
         $this->nums= $nums;
+        $this->id_evento= $id_evento;
 
     }
 
