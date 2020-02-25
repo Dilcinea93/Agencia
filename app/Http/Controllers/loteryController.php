@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\lotteries;
+use App\numsModel;
 use Mail;
 use Illuminate\Support\Arr;
 use App\Classes\Email;
@@ -24,6 +25,16 @@ class loteryController extends Controller
             //Print message "Your message has been sent"
             return redirect()->back();
         }
+    }
+    /**
+     * Remove the specified resource from storage.
+     * 
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function numberForm($id){
+        $numbers = numsModel::all(); 
+        return view('numberlist',compact('numbers','id'));
     }
   
 }

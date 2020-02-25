@@ -15,12 +15,12 @@ class CreateClientsTable extends Migration
     {
         Schema::create('client', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->integer('cedula');
-            $table->integer('id_num');
+            $table->string('name')->required();
+            $table->integer('cedula')->required();
+            $table->integer('id_num')->required();
             //$table->integer('id_venta');
             $table->string('email')->nullable();
-            $table->integer('phone');
+            $table->integer('phone')->required;
             $table->rememberToken();
             $table->timestamps();
 

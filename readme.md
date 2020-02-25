@@ -48,14 +48,27 @@ el envio de correos requiere que haya un correo al cual enviar el mensaje.
 
 
 
+Para este proyecto se incluyen:
+1 Evento del modelo. (evento y listener)
+
+1 Observador.
+
+2 Clases.
+
+1 interfaz
+
+1 Request para las validaciones de la seccion de compra.
+(comando php artisan make:Request FormRequest)
+En HTTP/Request se crea un archivo en el que se colocaran las reglas de validacion. El return del metodo authorize debe ser cambado a true. 
+El reuest debe ser importado en el controlador obviamente, 
+y en la funcion del controador cambir el tipo de parametro al nombre de la case de validacin, asi: public function comprar(FormRequest $request){
+
 
 /**
-Mi forma de trabajar un nuevo proyecto.
+Mi forma de trabajar un nuevo proyecto.. tiempo estimado...
 
 	Analisis del problema: 5 días (diagramación UML, DB).
 	Configuración del ambiente: 1 día.
-	Tiempo por módulo: 7 días.
-	Pruebas: 5 días.
-	Documentacion: 3 días.
+	Tiempo por módulo: 5 días.
 	Subida a servidor: 3 días.
 */

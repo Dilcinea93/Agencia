@@ -16,13 +16,13 @@ class CreateEventTable extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->unsignedBigInteger('id_user');
-            $table->string('name');
+            $table->string('name')->required();
             $table->string('lottery');
-            $table->string('description');
-            $table->integer('amount');
+            $table->string('description')->required();
+            $table->integer('amount')->required();
             $table->date('date');
             $table->string('time');
-            $table->string('award');
+            $table->string('award')->required();
             $table->timestamps();
 
             // Como hacer que en el campo id_user se inserte el ID del usuario Administrador?

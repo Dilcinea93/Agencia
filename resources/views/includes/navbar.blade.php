@@ -34,6 +34,7 @@
       <div class="col-md-6 offset-6">
           
 
+<a class=" btn links text-black"  href="{{url('home2')}}" > <span class="glyphicon glyphicon-user"></span>HOME 2 </a>
             <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Crear nuevo evento </a>
             <a class=" btn links text-black"  href="{{url('events/event')}}" > <span class="glyphicon glyphicon-user"></span>Loterías </a>
             <a class=" btn links text-black"  href="{{url('events/list')}}" > <span class="glyphicon glyphicon-user"></span>Eventos </a>

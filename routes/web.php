@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -19,7 +20,7 @@ Auth::routes();
 
 
 //Route::middleware(['authorizationMiddleware',])->group(function () {
-Route::get('numberlist/{id}', 'EventController@numberForm')->name('numberlist');
+Route::get('numberlist/{id}', 'loteryController@numberForm')->name('numberlist');
 Route::post('/comprar', 'EventController@comprar')->name('comprar');
 //});
 

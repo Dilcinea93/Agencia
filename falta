@@ -48,7 +48,7 @@ Consumir API de chance. Como gestiono un juego de lotería de chance por aquí? 
 
 -listas
 		Listado de ventas.--------------------
-		Listado de clientes.
+		Listado de clientes.-------------
 		Lista de ingresos -------
 
 -Eventos
@@ -93,11 +93,4 @@ Escribe todita la aplicacion (Desde la Base de datos hasta las vistas) y su docu
 			MAÑANA 24 DE FEBRERO
 /*************************************************/
 
-Arreglar el monto de la venta al momento de guardar la venta.
-
-Arreglar el ID del evento en la clase SendShipmentNotification y en la migracion de ventas.
-
-Probar el evento que hice 
-
-Lo que esta en el escritorio.
 

@@ -11,6 +11,8 @@ use App\numsModel;
 use App\venta;
 use App\Classes\generarPdf;
 use Illuminate\Http\Request;
+use App\Http\Requests\FormRequestV;
+
 
 /**
     This controller manages the event organization
@@ -93,7 +95,6 @@ class EventController extends Controller
         $event->update($request->all());
         return redirect('/events/');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -107,55 +108,29 @@ class EventController extends Controller
         return redirect('/events');
     }
 /*******************************************/
-
-
-    /**
-     * Remove the specified resource from storage.
-     * 
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function numberForm($id){
-        $numbers = numsModel::all(); 
-        return view('numberlist',compact('numbers','id'));
+    public function eventList(){
+        return view('event.eventos', [
+            'events'     => Event::all()
+        ]);
     }
 
-    public function comprar(Request $request){
+    public function comprar(FormRequestV $request){
 
-        if(isset($request)){
-        // $data= request()->validate([
-        //     'id'=>'required',
-        //      'cedula'=>'required',
-        //      'name'=>'required',
-        //      'id_num'=>'required',
-        //      'email'=>'required',
-        //      'phone'=>'required',
-        // ]);
         $client = client::create($request->all());
         $selected= $request['id_num'];
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
 
-/*Hacer funcionar el observador*/
+        /*Hacer funcionar el observador*/
         // \App\client::observe(\App\Observers\sellObserver::class);
         event(new OrderShipped($client,$nums,$request['id_event']));
-        $this->imprimir($selected);
+        $generarPdf= new generarPdf();
+        $generarPdf->imprimir($selected);
         return redirect(route('index'));
-        }else{
-            echo "Error en los datos";
-//como mostrar una excepcion
-        }
     }
-    public function eventList(){
-        return view('event.eventos', [
-            'events'     => Event::all()
-        ]);
-    }
-    public function imprimir($selected){
-        $pdf= new generarPDF();
-        $pdf->createPdf($selected);
-    }
+    
+    
 
 
     /**********************************/

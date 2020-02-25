@@ -18,5 +18,9 @@ class generarPDF {
 		//$this->createPDF();
 		return true;
 	}
+	public function imprimir($selected){
+        $pdf= new generarPDF();
+        $pdf->createPdf($selected);
+    }
 }
 ?>
