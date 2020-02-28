@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 class loteryController extends Controller
 {
     //
+
+    use Notifiable;
     public function __construct(){
     }
     public function index(){
@@ -26,6 +28,8 @@ class loteryController extends Controller
     }
     public function request(Request $request){
     	$email= new Email();
+
+        
         if($email->run($request)){
             //Print message "Your message has been sent"
             return redirect()->back();

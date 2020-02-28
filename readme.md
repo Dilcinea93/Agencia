@@ -94,6 +94,15 @@ En HTTP/Request se crea un archivo en el que se colocaran las reglas de validaci
 El reuest debe ser importado en el controlador obviamente, 
 y en la funcion del controador cambir el tipo de parametro al nombre de la case de validacin, asi: public function comprar(FormRequest $request){
 
+1 notificacion:
+
+comando: php artisan make:notification , crea un archivo en APP\Notifications.
+
+La clase que enviara notificaciones debe importar 
+use Illuminate\Notifications\Notifiable; y usar (como si fuera un trait)  use Notifiable; (dentro de la clase, antes del constructor si quieres)
+
+la clase de notificaion definemetodos para las vias donde se enviaara el mensaje. Puedes visualzar Laravel notification Channels para mas informaion.
+
 
 /**
 Mi forma de trabajar un nuevo proyecto.. tiempo estimado...
