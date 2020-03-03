@@ -2,12 +2,16 @@
 
 namespace App;
 
+
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 use App\venta;
 
 class client extends Model
 {
+  
+    use Notifiable;
     /**
      * Run the migrations.
      *

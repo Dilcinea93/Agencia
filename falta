@@ -1,4 +1,3 @@
-BACK
 hacer parte de autorizar a selecionar los numeros
 seleccionaran los numeros los que tengan cuenta.Yo como administrador tendre en mi cuenta para autorizar a que al jugador tal se le vea tal menu.. Eso es permisos de usuario.. o un middleware.. ya lo tengo
 
@@ -34,8 +33,7 @@ FRONT
 /***********************************/
 			TAREA
 /***********************************/
-
-Hacer test para probar el observer sellObserver
+Hacer funcionar la notificacion de laravel.
 
 Arreglar los nombres de las clases para poder navegar mejor en el proyecto.
 
@@ -79,23 +77,5 @@ Consumir API de chance. Como gestiono un juego de lotería de chance por aquí? 
 -pagos
 		Formulario para procesar pago
 		Funcion para Procesar pago
-
-
-/*********************************/
-	A TENER EN CUENTA
-/*********************************/
-
-Crea un repositorio GIT y protegelo.
-
-Instala los datepickers. Crea los observadores en el appServiceProvider. Crea los modelos, migraciones y factories, Instala paquetes, crea las pruebas., 
-
-Antes de empezar la aplicacion identifica todos los modulos y las tareas de cada módulo. Ve por orden. Y desarrolla tomando 3 días para cada módulo.
-
-Escribe todita la aplicacion (Desde la Base de datos hasta las vistas) y su documentacion en inglés.
-
-
-/*************************************************/
-			MAÑANA 24 DE FEBRERO
-/*************************************************/
 
 

@@ -117,8 +117,8 @@ class EventTest extends TestCase
     public function it_saves_the_bill(){
          $this->withoutExceptionHandling();
          $this->post('/comprar',
-            ['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'04261967348','id_num'=>'4','id_event'=>1]);
-         $this->assertDatabaseHas('client',['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'0261967348','id_num'=>'4']);
+            ['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'0426196734','id_num'=>'4','id_event'=>1]);
+         $this->assertDatabaseHas('client',['cedula'=>'332435','name'=>'victor','email'=>'sadas@sdf.co','phone'=>'0426196734','id_num'=>'4']);
 
     }
 

@@ -1,0 +1,84 @@
+http://timetsk.clockingit.com/
+
+jerarquía de usuarios
+
+director
+gerente
+supervisor
+lider de proyecto
+empleado
+obrero
+
+Areas
+Recursos humanos
+tecnologia
+papeleria
+etc
+etc..
+las que tengan las empresas... que cuando se abran una cuenta aqui, el administrador pueda configurar esto..
+
+Puntos a tratar reunion 3/3/2020
+
+
+Cartelera informativa.
+
+Chat interno.
+
+hacer sistema de recompensas. como se podría motivar a los empleados al ver un progreso...
+
+sistema que implemente tecnicas de scrum, que organice el sprint.
+
+Modulos:
+
+scrum: configurar scrum (sprint, y todo eso)
+tareas: llenar tareas.
+Progreso: Medir el progreso (promedio de tareas y tiempos...)
+
+usuarios: permisos de usuario
+que se conecte con no se, la base de datos de la empresa, y que aparezcan los empleados ahi... para no tener que registrarlos a mano.
+
+Permisos: solicitar permisos por aqui.. subir formatos de permisos, vacaciones y eso.
+
+Recordatorios: gestionar recordatorios de actividades prioritarias.
+
+Estadisticas. Rendimiento general e individual de equipos.
+
+
+
+-------------------------------------------------
+
+Objetos:
+Clock: mide el tiempo.
+
+--------------------------------------------------
+Documentacion.
+Unit Tests.
+
+Nombre del proyecto: 
+1- ReportVision
+2- TaskScheduler
+3- OurTasks
+
+
+Palabras clave
+
+
+comunicacion
+organizador
+supervision
+progreso
+rendimiento
+motivacion
+asignaciones
+reportes
+scrum
+Tareas
+Agenda
+Pendientes
+resultados
+gestiones
+distribucion de Responsabilidad
+
+
+-------------------------------------------
+

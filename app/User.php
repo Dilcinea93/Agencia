@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Illuminate\Database\Eloquent\Model;
 use App\event;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -44,4 +45,8 @@ class User extends Authenticatable
          //dd($this->belongsTo(client::class));
         return $this->hasMany(event::class,'id');
       }
+
+    public function newNotification () {
+      $this->notify(new Notification);
+    }
 }

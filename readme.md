@@ -9,7 +9,9 @@
 
 ## About beatSys
 
--This is a SORTEOS y JUEGOS DE AZAR system.BeatSys makes easier and ..EFICAZ... the RIFAS and SORTEOS management for the most populars lotteries. You can create your own events registering the event information and setting ... SU LANZAMIENTO... on a specific date. Also you can get your favorite lottery billet. We are a laborious team working on management directly with lotteries centers, so the queue at lotteries centers are past!
+-This was only a text for english practice. 
+
+-This is a SORTEOS y JUEGOS DE AZAR system. BeatSys makes easier and ..EFICAZ... the RIFAS and SORTEOS management for the most populars lotteries. You can create your own events registering the event information and setting ... SU LANZAMIENTO... on a specific date. Also you can get your favorite lottery billet. We are a laborious team working on management directly with lotteries centers, so the queue at lotteries centers are past! 
 
 
 Beatsys is a extensible system, that presents information about the most popular games results and a event list where you can know about the unavailable numbers to participate in, and ask for a PDF ticket with your chosen number that certifies your PARTICIPACION on the event, so, with it you can RECLAMAR the award.
@@ -97,18 +99,14 @@ y en la funcion del controador cambir el tipo de parametro al nombre de la case 
 1 notificacion:
 
 comando: php artisan make:notification , crea un archivo en APP\Notifications.
-
-La clase que enviara notificaciones debe importar 
-use Illuminate\Notifications\Notifiable; y usar (como si fuera un trait)  use Notifiable; (dentro de la clase, antes del constructor si quieres)
-
 la clase de notificaion definemetodos para las vias donde se enviaara el mensaje. Puedes visualzar Laravel notification Channels para mas informaion.
 
+La clase del modelo que enviara notificaciones debe importar 
+use Illuminate\Notifications\Notifiable; y usar (como si fuera un trait)  use Notifiable; (dentro de la clase, antes del constructor si quieres)
 
-/**
-Mi forma de trabajar un nuevo proyecto.. tiempo estimado...
+"Este atributo es utilizado por el modelo App\User por defecto y contiene un método que puede ser usado para enviar notificaciones: notify. El método notify espera recibir una instancia de notificación:"
+(osea, el $objModel puede acceder a un metodo notify asi: $user->notify(new InvoicePaid($invoice));)
 
-	Analisis del problema: 5 días (diagramación UML, DB).
-	Configuración del ambiente: 1 día.
-	Tiempo por módulo: 5 días.
-	Subida a servidor: 3 días.
-*/
+Tambien puedes enviar notifiaciones usando el facade asi: Notification::send($users, new InvoicePaid($invoice));
+
+El método via recibe una instancia $notifiable la cual será una instancia de la clase a la cual la notificación está siendo enviada. Puedes usar $notifiable para determinar mediante cuáles canales debería ser entregada la notificación:

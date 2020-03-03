@@ -31,6 +31,7 @@ class SendShipmentNotification
      */
     public function handle(OrderShipped $event)
     {
+
         venta::create(
             [
                 'id_client'=>$event->client->id,

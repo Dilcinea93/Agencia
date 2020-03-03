@@ -1,6 +1,5 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
-@section('title','Registro de usuario')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -27,40 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ID number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="id_number" type="text" class="form-control @error('id_number') is-invalid @enderror" name="name" value="{{ old('id_number') }}" required autocomplete="name" autofocus>
-
-                                @error('id_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="email">
-
-                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

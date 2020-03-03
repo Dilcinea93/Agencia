@@ -16,8 +16,9 @@ class RequestNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($num)
     {
+        $this->num = $num;
         //
     }
 
@@ -29,6 +30,7 @@ class RequestNotification extends Notification
      */
     public function via($notifiable)
     {
+        //return ['mail'];
         return ['mail'];
     }
 
@@ -41,9 +43,16 @@ class RequestNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Inicio de sesión sospechoso')
+            ->greeting('Hola ' . $notifiable->name)
+            ->line('Hubo un inicio de sesión sospechoso!')
+            ->line('Si no fuiste vos, entra a tu perfil para cambiar tu clave')
+            ->action('Cambiar Clave', 'https://laravel.com')
+            ->line('Gracias por usar nuestra aplicación!')->error();
+
+    //         return (new MailMessage)->view(
+    //     'emails.name', ['invoice' => $this->invoice]
+    // );
     }
 
     /**
@@ -56,6 +65,14 @@ class RequestNotification extends Notification
     {
         return [
             //
+        ];
+    }
+
+    public function toDatabase($notifiable)
+    {
+        return [
+            'num' => $this->num,
+            'user' => 'USER'
         ];
     }
 }

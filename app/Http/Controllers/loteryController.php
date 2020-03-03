@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\lotteries;
 use App\numsModel;
 use App\event;
+use App\user;
 use Mail;
 use App\Classes\text;
+use App\Notifications\RequestNotification;
 use Illuminate\Support\Arr;
 use App\Classes\Email;
 use Illuminate\Http\Request;
@@ -16,7 +18,6 @@ class loteryController extends Controller
 {
     //
 
-    use Notifiable;
     public function __construct(){
     }
     public function index(){
@@ -24,6 +25,8 @@ class loteryController extends Controller
         $text->getTexts();
         $texts=$text->getTexts();
         $lotteries=lotteries::all();
+        // $user->notify(new RequestNotification($lotteries));
+        // Notification::send($users, new InvoicePaid($invoice));
         return view('index',compact('lotteries','texts'));
     }
     public function request(Request $request){

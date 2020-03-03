@@ -33,3 +33,26 @@ Route::prefix('events')->group(function () {
 	Route::resource('/event', 'EventController');
 	Route::get('/list', 'EventController@eventList');
 });
+
+
+
+// Route::get('suscribe', function (Faker\Generator $faker) {
+//     $user = new User();
+//     $user->name = $faker->name;
+//     $user->email = $faker->email;
+//     $user->password = bcrypt($faker->password);
+//     $user->notify(new RequestNotification());
+
+//     return view('notified', ['user' => $user]);
+// });
+
+// Envia notificaciones a usuarios no registrados
+// Route::get('notify', function () {
+//     (new User)->forceFill([
+//         'name' => request('name'),
+//         'email' => request('email'),
+//     ])->notify(new \App\Notifications\NewNotification());
+// });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

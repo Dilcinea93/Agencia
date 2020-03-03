@@ -6,6 +6,7 @@ use Redirect,Response;
 use App\Event;
 use App\Events\OrderShipped;
 use App\lotteries;
+use App\Notifications\RequestNotification;
 use App\client;
 use App\numsModel;
 use App\venta;
@@ -121,6 +122,7 @@ class EventController extends Controller
         $nums= numsModel::find($selected);
         $nums->id_client=$client->id;
         $nums->save();
+        $client->notify(new RequestNotification($nums));
         event(new OrderShipped($client,$nums,$request['id_event']));
         $generarPdf->imprimir($selected);
         return redirect(route('index'));
